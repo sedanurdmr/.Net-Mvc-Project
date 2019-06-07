@@ -1,0 +1,45 @@
+﻿@model IEnumerable<mvcprojee.Models.Dersler>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Dersler</h2>
+@Html.ActionLink("Yeni Kayıt Ekle", "yeniKayit", null, new {@class="btn btn-default" })<br/>
+<table class="table table-sm table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Ders No</th>
+            <th scope="col">Ders Adı</th>
+            <th scope="col">Öğretmen Adı</th>
+            <th scope="col">Ders Saati</th>
+            <th scope="col">Düzenle</th>
+            <th scope="col">Sil</th>
+        </tr>
+    </thead>
+    @foreach (var kayit in Model)
+    {
+        <tbody>
+            <tr>
+                <th scope="row">@kayit.dersid</th>
+                <td>@kayit.dersadi</td>
+                <td>@kayit.ogretmen</td>
+                <td>@kayit.derssaati</td>
+                <td>@Html.ActionLink("Düzenle","kayitDuzenle",new {id=kayit.dersid },new {@class="btn btn-default" })</td>
+                <td>@Html.ActionLink("Sil", "kayitSil", new { id = kayit.dersid }, new { @class = "btn btn-default" })</td>
+            </tr>
+        </tbody>
+    }
+</table>
+
+<link href="~/bootstrap/css/bootstrap-grid.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap-reboot.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<script src="~/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="~/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/bootstrap/js/bootstrap.js"></script>
+<script src="~/bootstrap/js/bootstrap.min.js"></script>
+
